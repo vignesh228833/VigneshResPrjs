@@ -7,8 +7,21 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function App() {
+function FormPageDetails() {
+  return (    
+    <div>
+      <div className="container">
+       <h1 className="mt-4">Ticket Details</h1>
+       <>
+      <Form.Control size="lg" type="text" placeholder="User Id" />
+      </>
+      </div>
+    </div>
+  );
+}
+export default function App() {
   return (
+    <div>
     <Navbar  bg="primary" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
     <Container>
       <Navbar.Brand href="#home">Code Guardians Hackathon
@@ -20,8 +33,6 @@ function App() {
           <Nav.Link href="#link">Create New Ticket</Nav.Link>
           <NavDropdown title="Actions" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">View Tickets</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-            </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">
               External Links
@@ -40,6 +51,7 @@ function App() {
       </Navbar.Collapse>
     </Container>
   </Navbar>
+  <FormPageDetails />
+   </div>
   );
 }
-export default App;
