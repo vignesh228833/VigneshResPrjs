@@ -9,19 +9,29 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+function searchData(formData) {
+  const query = formData.get("query");
+  alert(`You searched for '${query}'`);
+}
+function ticketDtails(formData) {
+  const formPlaintextuserId = formData.get("formPlaintextuserId");
+  const formPlaintextSummary = formData.get("formPlaintextSummary");
+  const formPlaintextDetails = formData.get("formPlaintextDetails");
+  alert(`You searched for '${formPlaintextuserId}'`);
+}
 function FormPageDetails() {
   return (
     <div>
       <div className="container">
        <h1 className="mt-4">Ticket Details</h1>
        <>
-      <Form>
+      <Form action={ticketDtails}>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextuserId">
          <Form.Label column sm="2">
           User Id
           </Form.Label>
           <Col sm="10">
-            <Form.Control size="lg" type="text" placeholder="" />
+            <Form.Control size="lg" type="text" placeholder="" name = "formPlaintextuserId"/>
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextSummary">
@@ -29,7 +39,7 @@ function FormPageDetails() {
           Summary
           </Form.Label>
           <Col sm="10">
-            <Form.Control size="lg" type="text" placeholder="" />
+            <Form.Control size="lg" type="text" placeholder="" name = "formPlaintextSummary"/>
           </Col>
         </Form.Group>
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextDetails">
@@ -37,10 +47,10 @@ function FormPageDetails() {
           Details
           </Form.Label>
           <Col sm="10">
-            <Form.Control size="lg" type="textArea" placeholder="" />
+            <Form.Control size="lg" type="textArea" placeholder="" name = "formPlaintextDetails"/>
           </Col>
          </Form.Group>
-         <Button variant="success">Submit</Button>
+         <Button variant="success" type='submit'>Submit</Button>
         </Form>
       </>
       </div>
@@ -67,14 +77,15 @@ export default function App() {
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Form className="d-flex">
+        <Form className="d-flex" action={searchData}>
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              name = "query"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" type="submit">Search</Button>
           </Form>
       </Navbar.Collapse>
     </Container>
