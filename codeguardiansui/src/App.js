@@ -6,14 +6,42 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 function FormPageDetails() {
-  return (    
+  return (
     <div>
       <div className="container">
        <h1 className="mt-4">Ticket Details</h1>
        <>
-      <Form.Control size="lg" type="text" placeholder="User Id" />
+      <Form>
+        <Form.Group as={Row} className="mb-3" controlId="formPlaintextuserId">
+         <Form.Label column sm="2">
+          User Id
+          </Form.Label>
+          <Col sm="10">
+            <Form.Control size="lg" type="text" placeholder="" />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="formPlaintextSummary">
+         <Form.Label column sm="2">
+          Summary
+          </Form.Label>
+          <Col sm="10">
+            <Form.Control size="lg" type="text" placeholder="" />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3" controlId="formPlaintextDetails">
+         <Form.Label column sm="2">
+          Details
+          </Form.Label>
+          <Col sm="10">
+            <Form.Control size="lg" type="textArea" placeholder="" />
+          </Col>
+         </Form.Group>
+         <Button variant="success">Submit</Button>
+        </Form>
       </>
       </div>
     </div>
